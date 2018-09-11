@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "SwiftSerial",
+        "repositoryURL": "https://github.com/DasenB/SwiftSerial.git",
+        "state": {
+          "branch": null,
+          "revision": "af1fa134cc6ac6aa3133f9b0f08641cdb87ccf76",
+          "version": "0.0.13"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
