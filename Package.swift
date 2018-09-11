@@ -20,6 +20,6 @@ let package = Package(
             dependencies: ["SwiftSerial"]),
         .testTarget(
             name: "ThreadSafeSerialTests",
-            dependencies: ["ThreadSafeSerial"]),
+            dependencies: ["SwiftSerial"]),
     ]
 )
