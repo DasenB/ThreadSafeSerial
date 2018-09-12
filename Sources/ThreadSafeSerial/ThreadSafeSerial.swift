@@ -13,18 +13,18 @@ import IOKit.hid
 import IOKit.hidsystem
 import SwiftSerial
 
-struct SerialStatus {
+public struct SerialStatus {
     let path: String?
     let connected: Bool
     let baude: BaudRate
 }
 
-protocol ThreadSafeSerialDelegate {
+public protocol ThreadSafeSerialDelegate {
     func connected(serialport: ThreadSafeSerial)
     func disconnected(serialport: ThreadSafeSerial)
 }
 
-class ThreadSafeSerial: USBWatcherDelegate {
+public class ThreadSafeSerial: USBWatcherDelegate {
     
     private var serialPort: SerialPort? = nil
     private var path: String? = nil
