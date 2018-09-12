@@ -196,7 +196,7 @@ public class ThreadSafeSerial: USBWatcherDelegate {
         queue.resume()
     }
     
-    func getSerialPortList() -> [String] {
+    public func getSerialPortList() -> [String] {
         func findSerialDevices(deviceType: String, serialPortIterator: inout io_iterator_t ) -> kern_return_t {
             var result: kern_return_t = KERN_FAILURE
             let classesToMatch = IOServiceMatching(kIOSerialBSDServiceValue)! //.takeUnretainedValue()
