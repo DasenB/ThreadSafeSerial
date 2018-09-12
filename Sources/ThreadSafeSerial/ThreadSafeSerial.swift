@@ -61,7 +61,7 @@ public class ThreadSafeSerial: USBWatcherDelegate {
         self.watcher = USBWatcher(delegate: self)
     }
     
-    func open(path: String) -> Bool {
+    public func open(path: String) -> Bool {
         self.waitingOpen = true
         if self.connected { return false }
         let task = DispatchWorkItem {
@@ -88,7 +88,7 @@ public class ThreadSafeSerial: USBWatcherDelegate {
     }
     
     // always returns true after closing the serialport
-    func close() -> Bool {
+    public func close() -> Bool {
         waitingClose = true
         let task = DispatchWorkItem {
             if self.serialPort != nil {
@@ -105,7 +105,7 @@ public class ThreadSafeSerial: USBWatcherDelegate {
     }
     
     // timeout in milliseconds
-    func readLine(timeout: Int) -> String? {
+    public func readLine(timeout: Int) -> String? {
         if connected == false { return nil }
         waitingRead = true
         returnRead = nil
@@ -141,12 +141,12 @@ public class ThreadSafeSerial: USBWatcherDelegate {
         return self.returnRead
     }
     
-    func write(string: String) -> Bool {
+    public func write(string: String) -> Bool {
         if connected == false { return false }
         return false
     }
     
-    func deviceAdded(_ device: io_object_t) {
+    public func deviceAdded(_ device: io_object_t) {
         print("device added: \(device.name() ?? "<unknown>")")
         if self.delegate != nil {
             let notificationTask = DispatchWorkItem {
@@ -157,7 +157,7 @@ public class ThreadSafeSerial: USBWatcherDelegate {
         }
     }
     
-    func deviceRemoved(_ device: io_object_t) {
+    public func deviceRemoved(_ device: io_object_t) {
         // Stop execution of serialport operations
         queue.suspend()
         var str = "removed: \(device.name() ?? "<unknown>")"
