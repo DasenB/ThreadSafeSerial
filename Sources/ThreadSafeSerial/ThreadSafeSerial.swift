@@ -20,8 +20,8 @@ public struct SerialStatus {
 }
 
 public protocol ThreadSafeSerialDelegate {
-    public func connected(serialport: ThreadSafeSerial)
-    public func disconnected(serialport: ThreadSafeSerial)
+    func connected(serialport: ThreadSafeSerial)
+    func disconnected(serialport: ThreadSafeSerial)
 }
 
 public class ThreadSafeSerial: USBWatcherDelegate {
