@@ -171,7 +171,7 @@ public class ThreadSafeSerial: USBWatcherDelegate {
         
         // check wether the disconnected device was the device belonging serialport
         // if that is the case close the serialport
-        let availablePorts = getSerialPortList()
+        let availablePorts = ThreadSafeSerial.getSerialPortList()
         let serialPortStillAvailable = availablePorts.contains(self.path!)
         if !serialPortStillAvailable {
             if self.serialPort != nil {
@@ -196,7 +196,7 @@ public class ThreadSafeSerial: USBWatcherDelegate {
         queue.resume()
     }
     
-    public func getSerialPortList() -> [String] {
+    static public func getSerialPortList() -> [String] {
         func findSerialDevices(deviceType: String, serialPortIterator: inout io_iterator_t ) -> kern_return_t {
             var result: kern_return_t = KERN_FAILURE
             let classesToMatch = IOServiceMatching(kIOSerialBSDServiceValue)! //.takeUnretainedValue()
