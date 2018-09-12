@@ -8,11 +8,10 @@ let package = Package(
     products: [
         .library(
             name: "ThreadSafeSerial",
-            targets: ["ThreadSafeSerial"]),
+            targets: ["ThreadSafeSerial"])
     ],
     dependencies: [
         .package(url: "https://github.com/DasenB/SwiftSerial.git", from: "0.0.0")
-        
     ],
     targets: [
         .target(
@@ -20,6 +19,6 @@ let package = Package(
             dependencies: ["SwiftSerial"]),
         .testTarget(
             name: "ThreadSafeSerialTests",
-            dependencies: ["SwiftSerial"]),
+            dependencies: ["SwiftSerial"])
     ]
 )
